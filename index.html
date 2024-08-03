@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/279a632d59.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+                <div class="circle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+            <img src="https://preview.redd.it/g6o065ys7es81.jpg?auto=webp&s=ab45d76163788c838773a789c815d1602bc50f0a" class="song-img" alt="Album Art">
+            <h1>SUZUME</h1>
+            <p>Radwimps</p>
+
+            <audio id="audio-player">
+                <source src="Suzume No Tojimari Title Track(PagalWorld.com.so).mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            
+            <div class="controls">
+                <button id="play-pause-btn" class="circle">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audioPlayer = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const playPauseIcon = playPauseBtn.querySelector('i');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseIcon.classList.remove('fa-play');
+                playPauseIcon.classList.add('fa-pause');
+            } else {
+                audioPlayer.pause();
+                playPauseIcon.classList.remove('fa-pause');
+                playPauseIcon.classList.add('fa-play');
+            }
+        });
+    </script>
+</body>
+</html>
